@@ -204,6 +204,34 @@
 
 2. Please write a function `reverseName` which returns a string in reverse order of original one.
 
+   ```c
+   char* reverseName(char *s) {
+       // 获取字符串长度
+       int len = 0;
+       char *p = s;
+       while (*p != 0) {
+           len++;
+           p++;
+       }
+       //复制一份输入的字符串，因为题目要求我们不能直接对原字符串进行翻转
+       char *s_copyed = new char[len];
+       memcpy(s_copyed,s,len);
+   
+       // 交换 ...
+       int i = 0;
+       char c;
+       while (i <= len / 2 - 1) {
+           c = *(s_copyed + i);
+           *(s_copyed + i) = *(s_copyed + len - 1 - i);
+           *(s_copyed + len - 1 - i) = c;
+           i++;
+       }
+       return s_copyed;
+   }
+   ```
+
+   
+
    
 
 # QUESTION 5
