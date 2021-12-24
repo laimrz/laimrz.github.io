@@ -427,16 +427,27 @@ typedef struct{
        char gender[6];
    }
    //所以我们每次创建一个结构体都需要以下的语法
-   struct student liran;
+   struct student stu_liran;
    
    //为了减少代码量，我们使用typedef 简化了 struct student，就如同最上面那种语法，以后创建结构体就只需要以下写法了
-   student liran;
+   student stu_liran;
    //是不是发现可以少写个struct关键词，就这么简单！
+   ```
+
+   回到这个题，因为被copy的字符串只有5个字节，目标指针是一个长度为10的char数组，所以完全能够存放下这5个字符
+
+   ```c++
+   student liran;
+   strcpy((char*)stu_liran.name, "liran");
+   std::cout << stu_liran.name;
+   //当我们打印时，也不会出现任何问题，看后面的意思，老师是想考边界溢出，因为strcpy函数不是一个安全的函数
    ```
 
    
 
 2. ## Copy a 10 characters long string, what will happen?
+
+   
 
 3. ## Copy a 11 characters long string, what will happen?
 
