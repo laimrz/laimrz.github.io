@@ -243,8 +243,8 @@ public:
 }
 Class DialSide: public Cubeside {
 Public:
-    char *getName() override;
-    void setDial(uint16_t value);
+	char *getName() override;
+	void setDial(uint16_t value);
 protected:
 	uint16_t dialvalue =0;
 	static char const * dialName="xxyy";
