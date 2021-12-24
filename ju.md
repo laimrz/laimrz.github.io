@@ -503,3 +503,49 @@ fileStream >> x;
 ```
 
 1. ## What will happen if the value actually in the file is not a number,and how can your program recover?
+
+首先说明一点，如果test.txt里面是这样的内容
+
+```
+#file test.txt
+996
+```
+
+那么，这个程序一定一定一定不会按照预期，将996这个数字存到x变量中
+
+为什么呢？因为这个文本里面的可见数字是ASCII编码后的字符
+
+如果我们用二进制文本查看器，看看test.txt的本质是什么，我们会发现它长这个样子
+
+```
+       0  1  2    PlainText
+0000h: 39 39 36    996
+```
+
+注意这个39是指16进制(Hex) 的0x39 同理 36 是指 16进制(Hex) 0x36
+
+所以这个996其实表示的是3个字符，我们通过查阅ASCII表可以发现它的对应关系：[ASCII在线查询](https://tool.oschina.net/commons?type=4)
+
+回到这个问题中来，题目问会发生什么事情，当然就是这个int被赋值为[0x39,0x39,0x36,0x00],一共4个字节，在小端序下用int展示就是值为3553593的数字
+
+```c++
+//测试代码
+char* text = "996";
+int* i = (int*)text;
+std::cout << *i<<std::endl;        //结果3553593
+std::cout << 0x39393600<<std::endl;//结果960050688
+std::cout << 0x00363939;           //结果3553593
+```
+
+所以如何避免呢？因为这种方法读一个int一定不会是我们的预期值
+
+我们可以采用C++ STL库的stoi函数来对char*变量进行一个格式化处理
+
+```c++
+char* text = "996";
+int* i = (int*)text;
+std::cout << *i<<std::endl;   //结果3553593
+int realInt = std::stoi(text);
+std::cout << realInt;         //结果996
+```
+
