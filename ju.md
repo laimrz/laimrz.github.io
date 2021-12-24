@@ -116,9 +116,41 @@
    //再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
    ```
 
-3. How to define the template method `setMember`() ?
+3. **How to define the template method `setMember`() ?**
 
-4. And please explain every part of definition.
+   注意看第二题的题干，第二题给的题干内容应该是出现在头文件的(.h文件)，我们在`.cpp`文件写方法的具体代码
+
+   答案就是下面这个
+
+   ```c++
+   template <typename T> void setMember(T newValue){
+       this->member = newValue;
+   }
+   ```
+
+   
+
+4. **And please explain every part of definition.**
+
+   这个题是承接第3题的，从左到右依次解释每个名词：
+
+   `template`表明这是模板类 中 的一个函数
+
+   `<typename T>`表示这个这个函数的泛型变量取名为`T`
+
+   `void`表示这个函数的返回值是空类型void
+
+   `setMember`表示这个函数的名称，由题干中的声明中可以得到，这就是我们需要具体完善的函数
+
+   `(T newValue)`表示这个函数接收的类型是泛型T的变量，因为它是一个泛型变量，所以它有无限种可能，它在具体应用中可能是一个int,可能是string,可能是char，也有可能是一个vector,等待...
+
+   `this->member = newValue`表示把形参`newValue`的值赋给成员属性member,注意这个member是个泛型为T的成员属性，所以他和`newValue`都是同一种类型
+
+   
+
+   
+
+   
 
 # QUESTION 4
 
