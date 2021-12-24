@@ -297,7 +297,7 @@ protected:
    
    c1 是基类(父类)/Cubeside类 的指针,当我们通过这个指针去调用getName()方法时，会去虚函数表中寻找getName函数的真实地址，因为这个指针指向的对象是Cubeside类的对象，那么调用的方法也会是 Cubeside类中的getName方法，然后当我们调用的时候会发现报错，为什么呢？因为这是一个纯虚函数，纯虚函数是没有函数内容的，所以这个函数调用会报错！
    
-   c2 也是基类Cubeside类的指针，`Cubeside *c2 = new DialSide ();`尽管等号右边返回值应该是一个(DialSide对象的指针)，这里应该是有一个隐式转换，把(DialSide* 偷偷转换 成了 Cubeside*)，那么这样会出现什么效果呢？我们前面说了，虚函数的特性想要展现出来必须通过指针，这里指针类型虽然是Cubeside，但是指向的内存是DialSide类的对象，当我们调用它的getName方法时，会去虚函数表中寻找getName函数的真实地址，由于虚函数的特性是**允许用基类的指针来调用子类的这个函数**，所以这个时候会调用子类即DialSide类中重写了的getName函数
+   c2 也是基类Cubeside类的指针，`Cubeside *c2 = new DialSide ();`尽管等号右边返回值应该是一个(DialSide对象的指针)，这里应该是有一个隐式转换，把(DialSide* 偷偷转换 成了 Cubeside*)，那么这样会出现什么效果呢？我们前面说了，虚函数的特性想要展现出来必须通过指针，这里指针类型虽然是Cubeside，但是指向的内存是DialSide类的对象，当我们调用它的getName方法时，会去虚函数表中寻找getName函数的真实地址，由于虚函数的特性是**允许用基类的指针来调用子类的这个函数**，所以这个时候会调用子类即DialSide类中重写了的getName函数，根据题目已知信息是无法获得结果的(题干中看不到getName函数的具体实现，但是执行`c2->getName();`调用的一定会是子类(DialSide类)中重写(override)了的getName函数
 # QUESTION 6
 
 1. ## why we usually divide a class codes into .h and .cpp files?
