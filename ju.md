@@ -1,3 +1,11 @@
+
+
+# C++ Practice
+
+[TOC]
+
+
+
 # QUESTION 3
 
 1. **What is the meaning of Template Class?**
@@ -142,7 +150,7 @@
 
    `setMember`表示这个函数的名称，由题干中的声明中可以得到，这就是我们需要具体完善的函数
 
-   `(T newValue)`表示这个函数接收的类型是泛型T的变量，因为它是一个泛型变量，所以它有无限种可能，它在具体应用中可能是一个int,可能是string,可能是char，也有可能是一个vector,等待...
+   `(T newValue)`表示这个函数接收的类型是泛型T的变量，因为它是一个泛型变量，所以它有无限种可能，它在具体应用中可能是一个int,可能是string,可能是char，也有可能是一个vector,等等...
 
    `this->member = newValue`表示把形参`newValue`的值赋给成员属性member,注意这个member是个泛型为T的成员属性，所以他和`newValue`都是同一种类型
 
