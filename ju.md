@@ -312,7 +312,24 @@ protected:
 
 2. ## What command we should use to create one shared library file in a CLion project?
 
-   这里老师的意思是如何编译创建一个动态库文件，这里又涉及到了一个动态库的概念了，我们以前在Clion中写的程序是通过CMake直接编译成了可执行文件(Windows 下文件后缀名为.exe),但是动态库文件的后缀名是(在Windows下是.dll)，怎么办呢？这时候我们需要修改项目中的CMakeLists.txt文件
+   这里老师的意思是如何编译创建一个动态库文件，这里又涉及到了一个动态库的概念了，我们以前在Clion中写的程序是通过CMake直接编译成了可执行文件(Windows 下文件后缀名为.exe),但是动态库文件的后缀名是(在Windows下是.dll)，怎么办呢？这时候我们需要修改项目中的CMakeLists.txt文件，Clion左边的目录树可以直接看到这个文件
+
+   ```cmake
+   cmake_minimum_required(VERSION 3.21)
+   project(pig)
+   
+   set(CMAKE_CXX_STANDARD 14)
+   
+   # 这行不要=>add_executable(myPigApp main.cpp)
+   
+   #Cmake配置文件里面这样写，注意()内的三个参数
+   #第一个代表动态库的名称,不用写后缀名(如Windows下的.dll，Linux下的.so)
+   #第二个值是(SHARED,STATIC,MODULE,EXCLUDE_FROM_ALL)里面的一个，题目要求我们是创建共享库，所以我们就填SHARED就行啦
+   #第三个值是被编译的文件，如果有多个文件则需要用逗号分隔
+   add_library(myPigShared SHARED main.cpp,main.h)
+   ```
+
+   按照上面的配置，我们再通过Clion->Build->Build Project即可创建(编译)一个名为myPigShared.dll的文件在当前Project的`cmake-build-debug`目录下，当然如果我们是Linux的系统编译出来的文件名称可能是myPigShared.so，这个不用考虑太多
 
    
 
