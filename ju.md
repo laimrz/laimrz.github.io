@@ -270,11 +270,11 @@ protected:
    
 # QUESTION 6
 
-1. why we usually divide a class codes into `.h` and `.cpp` files?
-2. What command we should use to create one shared library file in a `CLion` project?
-3. What command we should use to create one executable file in a `CLion` project?
-4. What command we should use to link the library file with executable file?
-5. Try to use some codes to demonstrate these commands and explain every part of the command line.
+1. ## why we usually divide a class codes into `.h` and `.cpp` files?
+2. ## What command we should use to create one shared library file in a `CLion` project?
+3. ## What command we should use to create one executable file in a `CLion` project?
+4. ## What command we should use to link the library file with executable file?
+5. ## Try to use some codes to demonstrate these commands and explain every part of the command line.
 
 # QUESTION 7
 
@@ -285,15 +285,15 @@ typedef struct{
 }student;
 ```
 
-1. Use `strcpy` method to copy a 5 characters long string into the `name` field, what will happen?
-2. Copy a 10 characters long string, what will happen?
-3. Copy a 11 characters long string, what will happen?
-4. Copy a 20 characters long string, what will happen?
-5. Try to use a sample to explain ?
+1. ## Use `strcpy` method to copy a 5 characters long string into the `name` field, what will happen?
+2. ## Copy a 10 characters long string, what will happen?
+3. ## Copy a 11 characters long string, what will happen?
+4. ## Copy a 20 characters long string, what will happen?
+5. ## Try to use a sample to explain ?
 
 # QUESTION 8
 
-Your program performs the operation :
+**Your program performs the operation :**
 
 ```c++
 int x;
@@ -301,4 +301,4 @@ std::ifstream fileStream("test.txt");
 fileStream >> x;
 ```
 
-1. What will happen if the value actually in the file is not a number,and how can your program recover?
+1. ## What will happen if the value actually in the file is not a number,and how can your program recover?
