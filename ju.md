@@ -384,7 +384,7 @@ protected:
 
    我感觉我曲解了老师的意思，上面的答案好像都是用来回复这个问题的
 
-   不过上面几个题的答案是没错的，CMake作为跨平台编译工具，它的指令是非常非常精简的，我们编译器一个程序肯定是首选CMake
+   不过上面几个题的答案是没错的，CMake作为跨平台编译工具，它的指令是非常非常精简的，我们编译一个程序肯定是首选CMake
 
    如果上面几个小题我们都使用编译器参数的话会非常复杂，而且编译器的种类太多，每个编译器的参数名称又不一样，所以不说了
 
@@ -404,9 +404,44 @@ typedef struct{
 ```
 
 1. ## Use strcpy method to copy a 5 characters long string into the name field, what will happen?
+
+   讲这个题之前先讲一下这个题干吧
+
+   ```c++
+   typedef struct{
+       char name[10];
+       char gender[6];
+   }student;
+   //这是一个结构体的声明,typedef这个见过吧？
+   typedef int littleInt;
+   //这个意思就是 给int取了一个别名 叫 littleInt
+   //所以以后我们创建一个int类型的变量可以通过这个方式了
+   littleInt a;
+   //注意哦，它只是一个别名，所以和以下语法一模一样的效果
+   int a;
+   
+   //回到这个typedef struct吧
+   //以前struct是怎么声明的呢？是不是这样
+   struct student{
+       char name[10];
+       char gender[6];
+   }
+   //所以我们每次创建一个结构体都需要以下的语法
+   struct student liran;
+   
+   //为了减少代码量，我们使用typedef 简化了 struct student，就如同最上面那种语法，以后创建结构体就只需要以下写法了
+   student liran;
+   //是不是发现可以少写个struct关键词，就这么简单！
+   ```
+
+   
+
 2. ## Copy a 10 characters long string, what will happen?
+
 3. ## Copy a 11 characters long string, what will happen?
+
 4. ## Copy a 20 characters long string, what will happen?
+
 5. ## Try to use a sample to explain ?
 
 # QUESTION 8
