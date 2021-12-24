@@ -101,7 +101,7 @@
    	  return age;
        }
        string keyword;
-    	string getDogKeyword(){
+       string getDogKeyword(){
            return keyword;
        }
    }
@@ -113,7 +113,7 @@
    	  return age;
        }
        string keyword;
-    	string getDogKeyword(){
+       string getDogKeyword(){
            return keyword;
        }
    }
@@ -174,7 +174,7 @@ public:
 }
 Class DialSide: public Cubeside {
 Public:
-	char *getName() override;
+    char *getName() override;
     void setDial(uint16_t value);
 protected:
 	uint16_t dialvalue =0;
