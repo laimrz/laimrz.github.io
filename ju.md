@@ -251,16 +251,16 @@ protected:
 };
 ```
 
-1. There are two "= o" in these codes, what is the meaning of them each?
+1. ## There are two "= o" in these codes, what is the meaning of them each?
 
-2. Then define two pointer in main() program:
+2. ## Then define two pointer in main() program:
 
    ```c++
    Cubeside *c1 =new Cubeside ();
    Cubeside *c2 = new DialSide ();
    ```
    
-3. what is the effect of following codes:
+3. ## what is the effect of following codes:
 
    ```c++
    cl->getName();
