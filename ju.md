@@ -331,9 +331,27 @@ protected:
 
    按照上面的配置，我们再通过Clion->Build->Build Project即可创建(编译)一个名为myPigShared.dll的文件在当前Project的`cmake-build-debug`目录下，当然如果我们是Linux的系统编译出来的文件名称可能是myPigShared.so，这个不用考虑太多
 
-   
-
 3. ## What command we should use to create one executable file in a CLion project?
+
+   直接把上面的配置文件稍微一改就可以嘞，注意看它们的区别哟
+
+   ```cmake
+   cmake_minimum_required(VERSION 3.21)
+   project(pig)
+   
+   set(CMAKE_CXX_STANDARD 14)
+   
+   #括号里面的参数是 (可执行文件名称 被编译的文件名称)
+   add_executable(myPigApp main.cpp,main.h)
+   
+   #Cmake配置文件里面这样写，注意()内的三个参数
+   #第一个代表动态库的名称,不用写后缀名(如Windows下的.dll，Linux下的.so)
+   #第二个值是(SHARED,STATIC,MODULE,EXCLUDE_FROM_ALL)里面的一个，题目要求我们是创建共享库，所以我们就填SHARED就行啦
+   #第三个值是被编译的文件，如果有多个文件则需要用逗号分隔
+   #不是这个了=>add_library(myPigShared SHARED main.cpp,main.h)
+   ```
+
+   
 
 4. ## What command we should use to link the library file with executable file?
 
