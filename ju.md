@@ -20,7 +20,7 @@
    template<typename _Tp, typename _Alloc = std::allocator<_Tp> >
       class list : protected _List_base<_Tp, _Alloc>
        {
-   	...后面的省略了，因为充斥了大量宏声明，看起来很乱。
+   	//...后面的省略了，因为充斥了大量宏声明，看起来很乱。
    ```
 
    可以很明显看见，名称为list的这个类是一个template类，因为它有一个template关键词，然后紧接着有一个尖括号`<typename _Tp, typename _Alloc = std::allocator<_Tp> >`,这说明了这个模板类它的创建也需要传入一个尖括号，这个尖括号里接收两个参数，第一个参数就代表我们这个链表里面存放的数据类型，也许是int或者string，当然这由你决定，第二个参数可以缺省，因为她有一个默认值是std::allocator<_Tp>，这个我们就不用管他
@@ -29,23 +29,23 @@
 
    ```c++
    template <class type> class class-name {
-   	...这里省略成员函数和成员变量
+   	//...这里省略成员函数和成员变量
    }
    
    其实我们看很多库里面，它把class这个关键词提行写了，效果和上面其实是一模一样的，一定要辨别出来哦
    template <class type> 
    class class-name {
-   	...这里省略成员函数和成员变量
+   	//...这里省略成员函数和成员变量
    }
    还有一种情况就是它是这样声明一个模板类的
    template <typename type> 
    class class-name {
-   	...这里省略成员函数和成员变量
+   	//...这里省略成员函数和成员变量
    }
    
-   看出来它和上面的不同了吗，没错就是在尖括号里面class和typename的区别，我们不去深究这两个关键词的意思，因为它们几乎是一模一样的意思
-   区别在这里：https://liam.page/2018/03/16/keywords-typename-and-class-in-Cxx/
-   不过我们可以初略理解为：class就是typename，无论它代码怎么写他们都是一样的东西！
+   //看出来它和上面的不同了吗，没错就是在尖括号里面class和typename的区别，我们不去深究这两个关键词的意思，因为它们几乎是一模一样的意思
+   //区别在这里：https://liam.page/2018/03/16/keywords-typename-and-class-in-Cxx/
+   //不过我们可以初略理解为：class就是typename，无论它代码怎么写他们都是一样的东西！
    ```
 
    当我们有了一个模板类的声明过后，我们怎么去根据这个模板类来创建对象呢？来看看下面这段代码
@@ -63,11 +63,11 @@
        }
    }
    
-   我们创建一个Dog类
+   //我们创建一个Dog类
    Dog<string> dog1;
-   再调用dog1.getDogKeyword()就可以返回string类型的keyword啦，尽管这里还没有赋值(
+   //再调用dog1.getDogKeyword()就可以返回string类型的keyword啦，尽管这里还没有赋值(
    Dog<int> dog2;
-   再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
+   //再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
    ```
 
 2. **What is the purpose of using Template Class?**
@@ -109,11 +109,11 @@
            return keyword;
        }
    }
-   我们创建一个Dog_KWD_STR类
+   //我们创建一个Dog_KWD_STR类
    Dog_KWD_STR dog1;
-   再调用dog1.getDogKeyword()就可以返回string类型的keyword啦，尽管这里还没有赋值(
+   //再调用dog1.getDogKeyword()就可以返回string类型的keyword啦，尽管这里还没有赋值(
    Dog_KWD_INT dog2;
-   再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
+   //再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
    ```
 
 3. How to define the template method `setMember`() ?
