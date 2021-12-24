@@ -371,7 +371,11 @@ protected:
    #这个目录下有unicorn.dll、unicorn.lib文件
    link_directories("D:\\unicorn\\msvc\\Win32\\Debug")
    
+   #生成可执行文件，还没有链接，等下还需要下一步
+   add_executable(myPig main.cpp,main.h)
    
+   #上面link_directories设置了目录后，我们的程序已经编译完成了，现在需要给链接器指明链接的库文件具体名称,注意括号内的第一个参数是 我们的程序的最终名称，第二个参数才是依赖项的名称
+   target_link_libraries(myPig unicorn.dll,unicorn.lib)
    ```
 
    
