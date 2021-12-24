@@ -355,6 +355,27 @@ protected:
 
 4. ## What command we should use to link the library file with executable file?
 
+   ```cmake
+   cmake_minimum_required(VERSION 3.21)
+   project(pig)
+   
+   set(CMAKE_CXX_STANDARD 14)
+   
+   
+   #引入头文件环境变量目录,这里一般是导入第三方库的.h头文件，cpp或者h文件中#include会自动去搜索这些头文件
+   #比如我这里用了Unicorn这个开源库，我们通过这种方式导入头文件，否则我们在#include "unicorn.h"的时候编译器要提示我们找不到这个头文件(这个头文件来自第三方库)
+   include_directories("D:\\unicorn\\include")
+   
+   #引入链接目录 lib 或者 dll  so文件的目录，自动去搜索该目录下的lib  so  dll文件
+   #比如我这里要用Unicorn库的unicorn.dll文件来作为依赖项编译我们的程序，我们先找到unicorn.dll这个dll的目录，然后把路径填在下面的括号内
+   #这个目录下有unicorn.dll、unicorn.lib文件
+   link_directories("D:\\unicorn\\msvc\\Win32\\Debug")
+   
+   
+   ```
+
+   
+
 5. ## Try to use some codes to demonstrate these commands and explain every part of the command line.
 
 # QUESTION 7
