@@ -242,7 +242,7 @@ public:
 	virtual char * getName()=0;
 }
 Class DialSide: public Cubeside {
-Public:
+public:
 	char *getName() override;
 	void setDial(uint16_t value);
 protected:
@@ -286,14 +286,18 @@ protected:
    Cubeside *c2 = new DialSide ();
    ```
    
-3. ## what is the effect of following codes:
-
+   ## what is the effect of following codes:
+   
    ```c++
    cl->getName();
    c2->getName();
    ```
-
    
+   这里老师让解释这两行代码的效果，注意看`getName`函数，这是一个虚函数，因为这个函数在基类(父类)Cubeside类中被声明为virtual了
+   
+   c1 是基类(父类)/Cubeside类 的指针,当我们通过这个指针去调用getName()方法时，会去虚函数表中寻找getName函数的真实地址，因为这个对象是Cubeside对象，那么调用的方法也会是 Cubeside类中的getName方法，然后当我们调用的时候会发现报错，为什么呢？因为这是一个纯虚函数，纯虚函数是没有函数内容的，所以这个函数调用会报错！
+   
+   c2 也是基类Cubeside类的指针，`Cubeside *c2 = new DialSide ();`尽管等号右边返回值应该是一个(DialSide对象的指针)，这里应该是有一个隐式转换，把(DialSide* 偷偷转换 成了 Cubeside*)，那么这样会出现什么效果呢？我们前面说了，虚函数的特性想要展现出来必须通过指针，这里指针类型虽然是Cubeside类，但是指向的内存是DialSide对象，当我们调用它的getName方法时，会去虚函数表中寻找getName函数的真实地址，由于虚函数的特性是允许用基类的指针来调用子类的这个函数，所以这个时候会调用DialSide类中重写了的getName函数
 # QUESTION 6
 
 1. ## why we usually divide a class codes into .h and .cpp files?
