@@ -8,7 +8,7 @@
 
 # QUESTION 3
 
-1. **What is the meaning of Template Class?**
+1. ## **What is the meaning of Template Class?**
 
    Template class, is a Template for classes. C++ provides us with a way where we can create a class that will serve as a blueprint/template for future classes. A template class will have generic variables and methods of type “T”, which can later be customized to be used with different data types as per the requirement.
 
@@ -78,7 +78,7 @@
    //再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
    ```
 
-2. **What is the purpose of using Template Class?**
+2. ## **What is the purpose of using Template Class?**
 
    ```c++
    template <typename T> class AddNum {
@@ -124,7 +124,7 @@
    //再调用dog2.getDogKeyword()就可以返回int类型的keyword啦，尽管这里还没有赋值(
    ```
 
-3. **How to define the template method `setMember`() ?**
+3. ## **How to define the template method `setMember`() ?**
 
    注意看第二题的题干，第二题给的题干内容应该是出现在头文件的(.h文件)，我们在`.cpp`文件写方法的具体代码
 
@@ -138,7 +138,7 @@
 
    
 
-4. **And please explain every part of definition.**
+4. ## **And please explain every part of definition.**
 
    这个题是承接第3题的，从左到右依次解释每个名词：
 
@@ -162,8 +162,49 @@
 
 # QUESTION 4
 
-1. How to express a string by using C language?
+1. ## **How to express a string by using C language?**
+
+   在 C 编程中，字符串是以空字符结尾的字符序列`\0`。例如：
+
+   ```C
+   char c[] = "c string";
+   ```
+
+   当编译器遇到双引号括起来的字符序列时，它`\0`默认在末尾附加一个空字符
+
+   ![C编程中字符串的内存图](https://cdn.programiz.com/sites/tutorial2program/files/c-string.jpg)
+
+   如何声明一个字符串？
+
+   以下是声明字符串的方法：
+
+   ```c
+   char s[5];
+   ```
+
+   ![C 编程中的字符串声明](https://cdn.programiz.com/sites/tutorial2program/files/c-string-declaration_0.jpg)
+
+   在这里，我们声明了一个 5 个字符的字符串。
+
+   **如何初始化字符串？**
+
+   这个应该是回答的重点
+
+   ```c
+   char c[] = "abcd";
+   
+   char c[50] = "abcd";
+   
+   char c[] = {'a', 'b', 'c', 'd', '\0'};
+   
+   char c[5] = {'a', 'b', 'c', 'd', '\0'};
+   ```
+
+   ![C 编程中字符串的初始化](https://cdn.programiz.com/sites/tutorial2program/files/c-string-initialization.jpg)
+
 2. Please write a function `reverseName` which returns a string in reverse order of original one.
+
+   
 
 # QUESTION 5
 
