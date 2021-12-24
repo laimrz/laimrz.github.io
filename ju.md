@@ -202,7 +202,7 @@
 
    ![C 编程中字符串的初始化](https://cdn.programiz.com/sites/tutorial2program/files/c-string-initialization.jpg)
 
-2. Please write a function `reverseName` which returns a string in reverse order of original one.
+2. ## Please write a function `reverseName` which returns a string in reverse order of original one.
 
    ```c
    char* reverseName(char *s) {
