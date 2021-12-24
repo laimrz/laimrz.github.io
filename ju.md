@@ -382,6 +382,18 @@ protected:
 
 5. ## Try to use some codes to demonstrate these commands and explain every part of the command line.
 
+   我感觉我曲解了老师的意思，上面的答案好像都是用来回复这个问题的
+
+   不过上面几个题的答案是没错的，CMake作为跨平台编译工具，它的指令是非常非常精简的，我们编译器一个程序肯定是首选CMake
+
+   如果上面几个小题我们都使用编译器参数的话会非常复杂，而且编译器的种类太多，每个编译器的参数名称又不一样，所以不说了
+
+   举个例子，Clion默认选择的Ninja作为编译/链接器，如果精力比较好可以去看看生成的build.ninja文件，参数非常多，非常不容易读
+
+   如果用其他编译器比如GCC,VC,CLONG等编译器，参数也不一样，很麻烦很复杂
+
+   
+
 # QUESTION 7
 
 ```c++
