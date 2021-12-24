@@ -253,6 +253,14 @@ protected:
 
 1. ## There are two "= o" in these codes, what is the meaning of them each?
 
+   - 首先讲一下下面这个`uint16_t dialvalue =0;`吧，这个非常简单，它就是一个protected访问限制的普通成员属性，这里用了`=0`只是为了给它初始化赋值为0，这个uint16_t就是typedef起的别名，它的定义在库函数中(`typedef unsigned short  uint16_t;`)，我们就无需过多思考啦,但是我们要知道它是一个unsigned short，为两个字节哟！！
+
+   - 然后就是`virtual char * getName()=0;`这个地方用到了"=0"，这里是一个纯虚函数！纯虚函数！纯虚函数.....
+   
+   呜呜呜虚函数我猜你也不知道，不过这个真不怪你，虚函数是和多态这个概念紧密联系的，在Java里面每个类的成员函数都是虚函数，所以对这个虚函数的理解就比较容易，C++里面的虚函数就需要`virtual`这个关键词来声明，具体什么情景下使用   
+
+   
+
 2. ## Then define two pointer in main() program:
 
    ```c++
@@ -270,9 +278,9 @@ protected:
    
 # QUESTION 6
 
-1. ## why we usually divide a class codes into `.h` and `.cpp` files?
-2. ## What command we should use to create one shared library file in a `CLion` project?
-3. ## What command we should use to create one executable file in a `CLion` project?
+1. ## why we usually divide a class codes into .h and .cpp files?
+2. ## What command we should use to create one shared library file in a CLion project?
+3. ## What command we should use to create one executable file in a CLion project?
 4. ## What command we should use to link the library file with executable file?
 5. ## Try to use some codes to demonstrate these commands and explain every part of the command line.
 
@@ -285,7 +293,7 @@ typedef struct{
 }student;
 ```
 
-1. ## Use `strcpy` method to copy a 5 characters long string into the `name` field, what will happen?
+1. ## Use strcpy method to copy a 5 characters long string into the name field, what will happen?
 2. ## Copy a 10 characters long string, what will happen?
 3. ## Copy a 11 characters long string, what will happen?
 4. ## Copy a 20 characters long string, what will happen?
