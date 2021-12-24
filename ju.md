@@ -301,9 +301,21 @@ protected:
 # QUESTION 6
 
 1. ## why we usually divide a class codes into .h and .cpp files?
+
+   Improve the readability of the function interface, facilitate the expansion of the software, and improve the maintainability
+
+   提高了函数接口的可读性，有利于软件的扩展，提高了可维护性
+
+   
+
+   这个可能还很难感觉到它的优势，因为除了C、C++这些语言，都没有把声明(.h)和实现(.cpp)分开写，但是老师这里还让我们解释为什么分开写，其实C++不使用.h(不分开写)一样的能够实现程序功能。只是那样会导致不是很美观,然后链接时会出现一些小问题，反正大家都在分开写我们也分开写吧！考试考到了就写上面的答案
+
 2. ## What command we should use to create one shared library file in a CLion project?
+
 3. ## What command we should use to create one executable file in a CLion project?
+
 4. ## What command we should use to link the library file with executable file?
+
 5. ## Try to use some codes to demonstrate these commands and explain every part of the command line.
 
 # QUESTION 7
