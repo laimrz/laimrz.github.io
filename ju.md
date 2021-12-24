@@ -434,7 +434,7 @@ typedef struct{
    //是不是发现可以少写个struct关键词，就这么简单！
    ```
 
-   回到这个题，因为被copy的字符串只有5个字节，目标指针是一个长度为10的char数组，所以完全能够存放下这5个字符
+   回到这个题，因为被copy的字符串只有5个字节，目标指针是一个长度为10的char数组，所以完全能够存放下这5个字符，不会发生任何问题
 
    ```c++
    student liran;
@@ -443,17 +443,54 @@ typedef struct{
    //当我们打印时，也不会出现任何问题，看后面的意思，老师是想考边界溢出，因为strcpy函数不是一个安全的函数
    ```
 
-   
-
 2. ## Copy a 10 characters long string, what will happen?
 
-   
+   这个地方就有点意思了，老师考的很刁钻啊，10字节的string，当我们调用strcpy函数的时候，因为C语言里面的字符串是以0x00结束的，所以我们strcpy过去的值将不再仅仅是10个字节，将会从name的指针开始copy11个字节过去，这样会导致数据溢出，多出来的那一个字节(字符串结尾的0x00这个字节)将会按照内存中的顺序写入到gender变量的第一个字节
+
+   我们来看看下面这个例子吧
+
+   ```c++
+   student student_liran;
+   student_liran.gender[0] = 'g';
+   student_liran.gender[1] = 'i';
+   strcpy((char*)student_liran.name, "aaaabbbbcd");
+   std::cout << student_liran.name;
+   std::cout << student_liran.gender;
+   ```
+
+   猜猜结果是什么？
+
+   name变量是"aaaabbbbcd"，但是gender变量变成了[0,'i',0,0,0,0],是不是发现这和我们预期的['g','i',0,0,0,0]不相同了？
+
+   对的，这就是strcpy这个危险函数导致的数据溢出
 
 3. ## Copy a 11 characters long string, what will happen?
 
+   和上面相同，这次将会溢出两个字节
+
+   ```c++
+   student student_liran;
+   student_liran.gender[0] = 'g';
+   student_liran.gender[1] = 'i';
+   student_liran.gender[1] = 'r';
+   strcpy((char*)student_liran.name, "aaaabbbbcde");
+   std::cout << student_liran.name;
+   std::cout << student_liran.gender;
+   ```
+
+   在这样的前提下，gender将会被赋值为['e',0,'r',0,0,0]
+
 4. ## Copy a 20 characters long string, what will happen?
 
+   这就溢出的更猛了，我们将这个结构体声明在栈内存中，所以当strcpy了20个字符时！
+
+   也许栈帧的返回值就被篡改了，说不定还会篡改到其他特殊的变量值，这个和程序上下文有关，不出意外的话程序会Crash掉，这对于一个程序来说是非常非常非常非常危险的
+
+   世界顶级软件攻防中，往往就采用这种PWN的常规手段构造代码任意执行，哎不科普了真的太厉害了那些人
+
 5. ## Try to use a sample to explain ?
+
+   emmm.终于要写完了！yes！
 
 # QUESTION 8
 
