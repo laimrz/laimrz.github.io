@@ -312,6 +312,10 @@ protected:
 
 2. ## What command we should use to create one shared library file in a CLion project?
 
+   这里老师的意思是如何编译创建一个动态库文件，这里又涉及到了一个动态库的概念了，我们以前在Clion中写的程序是通过CMake直接编译成了可执行文件(Windows 下文件后缀名为.exe),但是动态库文件的后缀名是(在Windows下是.dll)，怎么办呢？这时候我们需要修改项目中的CMakeLists.txt文件
+
+   
+
 3. ## What command we should use to create one executable file in a CLion project?
 
 4. ## What command we should use to link the library file with executable file?
