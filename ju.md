@@ -472,7 +472,7 @@ typedef struct{
    student student_liran;
    student_liran.gender[0] = 'g';
    student_liran.gender[1] = 'i';
-   student_liran.gender[1] = 'r';
+   student_liran.gender[2] = 'r';
    strcpy((char*)student_liran.name, "aaaabbbbcde");
    std::cout << student_liran.name;
    std::cout << student_liran.gender;
