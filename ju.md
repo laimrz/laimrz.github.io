@@ -131,7 +131,7 @@
    答案就是下面这个
 
    ```c++
-   template <typename T> void setMember(T newValue){
+   template <typename T> void AddNum<T>::setMember(T newValue){
        this->member = newValue;
    }
    ```
